@@ -1,4 +1,4 @@
-package com.checkoutsy.service.user.communication.exception;
+package com.checkoutsy.service.person.communication.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -2,8 +2,8 @@ FROM eclipse-temurin:23
 
 WORKDIR /app
 
-COPY target/user-0.0.1-SNAPSHOT.jar /app/user-service.jar
+COPY target/person-0.0.1-SNAPSHOT.jar /app/person-service.jar
 
-EXPOSE 8081
+EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "/app/user-service.jar"]
+ENTRYPOINT ["java", "-jar", "/app/person-service.jar"]

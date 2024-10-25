@@ -1,36 +1,30 @@
-package com.checkoutsy.service.user.domain.model;
+package com.checkoutsy.service.person.communication.dto;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-@Entity
-@Table(name = "users")
-public class User {
+public class PersonDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Size(min = 5, max = 20)
     private String username;
 
-    @Column(nullable = false, unique = true)
+    @Email
     private String email;
 
-    @Column(nullable = false, unique = true)
+    @Size(min = 8, max = 40)
     private String password;
 
-    @Column(nullable = false, updatable = false)
+    @Past
     private LocalDateTime createdAt;
 
-    @Column()
+    @Future
     private LocalDateTime updatedAt;
 
     public Long getId() {
@@ -85,13 +79,13 @@ public class User {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(id, user.id)
-                && Objects.equals(username, user.username)
-                && Objects.equals(email, user.email)
-                && Objects.equals(password, user.password)
-                && Objects.equals(createdAt, user.createdAt)
-                && Objects.equals(updatedAt, user.updatedAt);
+        PersonDto personDto = (PersonDto) o;
+        return Objects.equals(id, personDto.id)
+                && Objects.equals(username, personDto.username)
+                && Objects.equals(email, personDto.email)
+                && Objects.equals(password, personDto.password)
+                && Objects.equals(createdAt, personDto.createdAt)
+                && Objects.equals(updatedAt, personDto.updatedAt);
     }
 
     @Override
